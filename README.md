@@ -217,7 +217,7 @@ The project showcases practical skills in **Python, Pandas, data integration, re
 
 ## 👩‍💻 Author
 
-**Andressa Cruz Miranda**
+**Andressa Miranda**
 
 Computer Science | Data Analytics | Python | Statistical Analysis
 
