@@ -1,4 +1,226 @@
-# Statistical Data Analysis | Probability & Distributions
-Análise Estatística de Dados | Probabilidade e Distribuições
+# 📱 Telecom Revenue Analysis | Customer Behavior & Statistical Testing
 
-Exploratory study of statistical analysis, probability distributions, sampling methods, and descriptive statistics applied to data analytics.
+### Comparing Mobile Plans, Customer Usage Patterns, and Revenue Performance Using Python
+
+**Python • Pandas • NumPy • Matplotlib • SciPy • Exploratory Data Analysis • Hypothesis Testing**
+
+## 📌 Project Overview
+
+Telecommunications companies rely on customer usage and revenue data to evaluate the financial performance of their service plans and make informed marketing decisions.
+
+This project analyzes customer behavior and monthly revenue for **Megaline**, a fictional telecommunications company offering two prepaid plans: **Surf** and **Ultimate**.
+
+The objective is to determine whether the plans generate different average revenues and identify insights that can support advertising budget allocation.
+
+The project combines data preprocessing, monthly customer-level aggregation, exploratory data analysis, and statistical hypothesis testing.
+
+## 🎯 Project Objectives
+
+- Clean and integrate multiple telecommunications datasets.
+- Analyze customer behavior across calls, text messages, and internet usage.
+- Calculate monthly consumption for each customer.
+- Estimate monthly revenue, including additional usage charges.
+- Compare the revenue performance of Surf and Ultimate.
+- Investigate differences in customer usage patterns.
+- Test whether average revenue differs significantly between the two plans.
+- Compare average revenue in the NY-NJ region with other regions.
+
+## 🛠️ Technologies Used
+
+| Technology | Application |
+|---|---|
+| Python | Data processing and analysis |
+| Pandas | Data cleaning, merging, and aggregation |
+| NumPy | Numerical operations |
+| Matplotlib | Data visualization |
+| SciPy | Statistical hypothesis testing |
+| Jupyter Notebook | Analysis and documentation |
+
+## 📂 Dataset Description
+
+The analysis uses five datasets containing information about customers, subscriptions, and service consumption.
+
+| Dataset | Description |
+|---|---|
+| `megaline_users.csv` | Customer information, location, and subscribed plan |
+| `megaline_plans.csv` | Plan prices, included allowances, and additional charges |
+| `megaline_calls.csv` | Customer call records |
+| `megaline_messages.csv` | Text message records |
+| `megaline_internet.csv` | Mobile internet usage sessions |
+
+The customer dataset contains **500 users**.
+
+The service datasets include approximately 137,735 call records, 76,051 messages, and 104,825 internet sessions.
+
+## 💳 Mobile Plan Comparison
+
+| Feature | Surf | Ultimate |
+|---|---:|---:|
+| Monthly fee | $20 | $70 |
+| Included minutes | 500 | 3,000 |
+| Included messages | 50 | 1,000 |
+| Included internet | 15 GB | 30 GB |
+| Extra minute | $0.03 | $0.01 |
+| Extra message | $0.03 | $0.01 |
+| Extra GB | $10 | $7 |
+
+Surf offers a lower monthly fee but more limited allowances.
+
+Ultimate has a higher fixed cost but includes substantially greater usage limits and lower overage rates.
+
+## 🧹 Data Cleaning and Preparation
+
+The preprocessing workflow included:
+
+1. Inspecting dataset structure, data types, and missing values.
+2. Converting date columns to datetime format.
+3. Investigating zero-duration calls and zero-usage internet sessions.
+4. Standardizing relevant categorical information.
+5. Creating additional customer-level attributes.
+6. Aggregating calls, messages, and internet consumption by customer and month.
+7. Integrating usage records with customer and plan information.
+8. Calculating monthly revenue for each customer.
+
+Missing values in `churn_date` were interpreted as customers who had not canceled their subscriptions.
+
+## 📊 Exploratory Data Analysis
+
+### 1. Call Usage
+
+Monthly call duration was analyzed to compare customer behavior across the two plans.
+
+The analysis identified substantial variation in call consumption, reflecting different usage profiles.
+
+### 2. Text Message Usage
+
+The distribution of monthly messages was examined for Surf and Ultimate customers.
+
+The analysis explored differences in average consumption and variability between the plans.
+
+### 3. Internet Consumption
+
+Monthly mobile data usage was aggregated and analyzed.
+
+The results highlighted differences in customer consumption patterns and the potential financial impact of exceeding plan allowances.
+
+### 4. Monthly Revenue
+
+Monthly revenue was calculated by combining the fixed subscription fee with additional charges for usage exceeding plan limits.
+
+The analysis examined revenue distributions and compared the financial performance of Surf and Ultimate.
+
+## 🧪 Statistical Hypothesis Testing
+
+Two independent-sample t-tests were performed using a significance level of **5% (α = 0.05)**.
+
+### Hypothesis 1 — Surf vs Ultimate Revenue
+
+**Research Question:** Is the average monthly revenue generated by Surf customers equal to the average monthly revenue generated by Ultimate customers?
+
+**Null Hypothesis (H₀):** Average monthly revenues are equal.
+
+**Alternative Hypothesis (H₁):** Average monthly revenues are different.
+
+A Welch's t-test was used because the sample variances differed.
+
+| Metric | Result |
+|---|---:|
+| Surf revenue variance | 3,034.63 |
+| Ultimate revenue variance | 119.51 |
+| p-value | 3.65 × 10⁻⁷ |
+| Significance level | 0.05 |
+| Decision | Reject H₀ |
+
+**Interpretation:** The test provides statistically significant evidence that average monthly revenue differs between the two plans.
+
+### Hypothesis 2 — NY-NJ vs Other Regions
+
+**Research Question:** Is average monthly revenue in the NY-NJ region different from average monthly revenue in other regions?
+
+**Null Hypothesis (H₀):** Average monthly revenues are equal.
+
+**Alternative Hypothesis (H₁):** Average monthly revenues are different.
+
+| Metric | Result |
+|---|---:|
+| NY-NJ revenue variance | 1,803.58 |
+| Other regions revenue variance | 2,193.12 |
+| p-value | 0.0905 |
+| Significance level | 0.05 |
+| Decision | Fail to reject H₀ |
+
+**Interpretation:** The analysis did not find sufficient statistical evidence of a difference in average monthly revenue between the NY-NJ region and other regions at the 5% significance level.
+
+This does not prove that the regional averages are identical.
+
+## 💡 Key Findings
+
+- Surf and Ultimate have different pricing structures and included allowances.
+- Customer usage varies across calls, messages, and internet consumption.
+- Additional usage charges can contribute substantially to Surf revenue.
+- The notebook's analysis identifies Ultimate as generating higher average revenue per customer.
+- A statistically significant difference was found between average revenues for the two plans.
+- No statistically significant regional revenue difference was found in the NY-NJ comparison at α = 0.05.
+
+## 📈 Business Implications
+
+The results can support marketing and pricing discussions.
+
+**Advertising Budget Allocation**
+
+Differences in average revenue may help inform decisions about which plans to promote.
+
+**Customer Segmentation**
+
+Usage patterns can help identify customers whose needs are better aligned with particular plan allowances.
+
+**Revenue Optimization**
+
+Understanding overage charges can help explain variations in monthly customer revenue.
+
+**Further Analysis**
+
+A complete business decision would also require considering customer acquisition costs, retention, profitability, and customer lifetime value.
+
+## ⚠️ Limitations
+
+- The analysis is based on historical customer and service usage data.
+- Revenue differences do not necessarily imply differences in profitability.
+- The regional test did not establish that revenues are identical.
+- Statistical comparisons describe observed associations and do not establish causation.
+- Repeated monthly observations from the same customers may violate the independence assumption of a standard two-sample t-test; customer-level aggregation or methods accounting for repeated observations would strengthen the inference.
+
+## 🚀 How to Run the Project
+
+1. Clone or download the repository.
+2. Install the required Python libraries.
+3. Place the five Megaline CSV datasets in the `data/` directory.
+4. Update dataset paths in the notebook.
+5. Open the notebook in Jupyter Notebook or JupyterLab.
+6. Run all cells sequentially.
+
+### Install Dependencies
+
+```bash
+pip install pandas numpy matplotlib scipy notebook
+```
+
+## 📈 Conclusion
+
+This project demonstrates how data preparation, exploratory analysis, and statistical hypothesis testing can support business decisions in the telecommunications industry.
+
+By combining multiple datasets and analyzing monthly customer consumption, the project evaluated differences in revenue between prepaid plans and geographic regions.
+
+The results provide evidence of a significant difference in average monthly revenue between Surf and Ultimate, while the regional comparison did not reach statistical significance.
+
+The project showcases practical skills in **Python, Pandas, data integration, revenue calculation, data visualization, and statistical analysis**.
+
+## 👩‍💻 Author
+
+**Andressa Cruz Miranda**
+
+Computer Science | Data Analytics | Python | Statistical Analysis
+
+[GitHub Profile](https://github.com/Andressa202)
+
+*Developed as part of the TripleTen Data Science program.*
